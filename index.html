@@ -5,50 +5,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hochwasserhilfe 2024</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
-    * {
-      box-sizing: border-box;
-      padding: 0;
+    /* Stellt sicher, dass das Hintergrundbild die gesamte Seite bedeckt */
+    html,
+    body {
       margin: 0;
-    }
-
-    body,
-    html {
+      padding: 0;
+      width: 100%;
       height: 100%;
       overflow: hidden;
-      width: 100%;
     }
 
+    /* Hintergrundbild deckend */
     body {
-      background-image: url('PXL_20240915_100354672.TS_exported_12171.jpg');
+      background-image: url('background.jpg');
+      background-size: cover;
+      /* Passt das Bild an, um die gesamte Seite zu füllen */
       background-position: center;
       background-repeat: no-repeat;
-      background-size: cover;
     }
 
-    .content {
-      align-items: center;
-      display: flex;
-      height: 100%;
-      justify-content: center;
+    /* Container für den Markdown-Inhalt */
+    #markdown-content {
+      background: rgba(255, 255, 255, 0.8);
+      /* Halbtransparenter Hintergrund für den Text */
+      padding: 20px;
+      margin: 50px;
+      border-radius: 10px;
+      max-width: 800px;
+      color: #333;
+      /* Textfarbe */
+      font-family: Arial, sans-serif;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #000;
+      /* Überschriften in einer anderen Farbe */
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
     }
   </style>
 </head>
 
 <body>
-  <div class="content">
-    <h1>Hochwasserhilfe 2024</h1>
-    <br>
-    <br>
-    <h2>An dieser Stelle möchten wir uns noch einmal für die außergewöhnliche Hilfe bei folgenden Personen bedanken:</h2>
-    <br>
-    <ul>
-      <li>Nina H.</li>
-      <li>Manuel A.</li>
-      <li>Marianne Z.</li>
-      <li>Franz A.</li>
-    </ul>
-  </div>
+  <!-- Container für die gerenderte Markdown -->
+  <div id="markdown-content"></div>
+
+  <!-- Dein Markdown-Text -->
+  <script>
+    const markdownText = `
+# Willkommen auf meiner Seite
+Dies ist ein Beispiel für die Nutzung von **Markdown** auf einer Seite mit einem Hintergrundbild.
+
+- Markdown-Listen
+- **Fettgedruckter Text**
+- *Kursiver Text*
+
+\`<code>\` und \`\`\`Code-Blöcke\`\`\` werden ebenfalls unterstützt:
+
+\`\`\`javascript
+console.log('Hello World');
+\`\`\`
+
+## Weiterer Abschnitt
+Hier könnte mehr Inhalt stehen.    
+`;
+
+    // Markdown zu HTML konvertieren und in den Container einfügen
+    document.getElementById('markdown-content').innerHTML = marked(markdownText);
+  </script>
 </body>
 
 </html>
