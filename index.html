@@ -13,44 +13,57 @@
         body, html {
             height: 100%;
             font-family: Arial, sans-serif;
-        }
-        body {
-            background: url('background.jpg') no-repeat center center fixed;
-            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
+        }
+        #container {
+            width: 1080px;
+            height: 1920px;
+            position: relative;
+            background: url('background.jpg') no-repeat center center;
+            background-size: contain;
         }
         #content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
-            width: 50%;
+            width: 80%;
             max-width: 600px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-        textarea {
+        .markdown-text {
+            display: block;
             width: 100%;
-            height: 200px;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
-<div id="content">
-    <textarea id="markdown-input" placeholder="Schreibe hier deinen Markdown-Text..."></textarea>
-    <div id="markdown-output"></div>
+<div id="container">
+    <div id="content">
+        <div id="markdown-output" class="markdown-text"></div>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
-    const input = document.getElementById('markdown-input');
-    const output = document.getElementById('markdown-output');
+    // Gebe hier deinen Markdown-Text direkt im Code ein
+    const markdownText = `
+# Willkommen
+Dies ist ein Beispieltext in **Markdown**.
+- Listelement 1
+- Listelement 2
 
-    input.addEventListener('input', () => {
-        output.innerHTML = marked(input.value);
-    });
+Hier ein Beispiel eines Links: [OpenAI](https://openai.com)
+`;
+
+    document.getElementById('markdown-output').innerHTML = marked(markdownText);
 </script>
 
 </body>
