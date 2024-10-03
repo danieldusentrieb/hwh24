@@ -53,17 +53,18 @@
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
-    // Gebe hier deinen Markdown-Text direkt im Code ein
-    const markdownText = `
+    document.addEventListener('DOMContentLoaded', () => {
+        // Gebe hier deinen Markdown-Text direkt im Code ein
+        const markdownText = `
 # Willkommen
 Dies ist ein Beispieltext in **Markdown**.
 - Listelement 1
 - Listelement 2
 
 Hier ein Beispiel eines Links: [OpenAI](https://openai.com)
-`;
-
-    document.getElementById('markdown-output').innerHTML = marked(markdownText);
+        `;
+        document.getElementById('markdown-output').innerHTML = marked(markdownText);
+    });
 </script>
 
 </body>
