@@ -1,86 +1,57 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hochwasserhilfe 2024</title>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <style>
-    /* Stellt sicher, dass das Hintergrundbild die gesamte Seite bedeckt */
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    /* Hintergrundbild deckend */
-    body {
-      background-image: url('background.jpg');
-      background-size: cover;
-      /* Passt das Bild an, um die gesamte Seite zu füllen */
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    /* Container für den Markdown-Inhalt */
-    #markdown-content {
-      background: rgba(255, 255, 255, 0.8);
-      /* Halbtransparenter Hintergrund für den Text */
-      padding: 20px;
-      margin: 50px;
-      border-radius: 10px;
-      max-width: 800px;
-      color: #333;
-      /* Textfarbe */
-      font-family: Arial, sans-serif;
-    }
-
-    h1,
-    h2,
-    h3 {
-      color: #000;
-      /* Überschriften in einer anderen Farbe */
-    }
-
-    pre {
-      background-color: #f4f4f4;
-      padding: 10px;
-      border-radius: 5px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Webseite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-
 <body>
-  <!-- Container für die gerenderte Markdown -->
-  <div id="markdown-content"></div>
 
-  <!-- Dein Markdown-Text -->
-  <script>
-    const markdownText = `
-# Willkommen auf meiner Seite
-Dies ist ein Beispiel für die Nutzung von **Markdown** auf einer Seite mit einem Hintergrundbild.
+<div id="content">
+    <textarea id="markdown-input" placeholder="Schreibe hier deinen Markdown-Text..."></textarea>
+    <div id="markdown-output"></div>
+</div>
 
-- Markdown-Listen
-- **Fettgedruckter Text**
-- *Kursiver Text*
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+    const input = document.getElementById('markdown-input');
+    const output = document.getElementById('markdown-output');
 
-\`<code>\` und \`\`\`Code-Blöcke\`\`\` werden ebenfalls unterstützt:
+    input.addEventListener('input', () => {
+        output.innerHTML = marked(input.value);
+    });
+</script>
 
-\`\`\`javascript
-console.log('Hello World');
-\`\`\`
-
-## Weiterer Abschnitt
-Hier könnte mehr Inhalt stehen.    
-`;
-
-    // Markdown zu HTML konvertieren und in den Container einfügen
-    document.getElementById('markdown-content').innerHTML = marked(markdownText);
-  </script>
 </body>
-
 </html>
