@@ -51,7 +51,9 @@
     </div>
 </div>
 
+<!-- Korrekte Version von marked.js -->
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Gebe hier deinen Markdown-Text direkt im Code ein
@@ -63,7 +65,9 @@ Dies ist ein Beispieltext in **Markdown**.
 
 Hier ein Beispiel eines Links: [OpenAI](https://openai.com)
         `;
-        document.getElementById('markdown-output').innerHTML = marked(markdownText);
+        
+        // Verwende marked.parse() anstelle von marked() in der neuen Version
+        document.getElementById('markdown-output').innerHTML = marked.parse(markdownText);
     });
 </script>
 
