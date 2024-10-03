@@ -3,73 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdown Webseite</title>
+    <title>Zentriertes Hintergrundbild</title>
     <style>
-        * {
+        html, body {
+            height: 100%;
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
-        body, html {
-            height: 100%;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-        #container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background: url('background.jpg') no-repeat center center;
-            background-size: cover; /* Bild füllt den ganzen Bildschirm */
-        }
-        #content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 600px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        .markdown-text {
-            display: block;
-            width: 100%;
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
     </style>
 </head>
 <body>
-
-<div id="container">
-    <div id="content">
-        <div id="markdown-output" class="markdown-text"></div>
-    </div>
-</div>
-
-<!-- Korrekte Version von marked.js -->
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Gebe hier deinen Markdown-Text direkt im Code ein
-        const markdownText = `
-# Willkommen
-Dies ist ein Beispieltext in **Markdown**.
-- Listelement 1
-- Listelement 2
-
-Hier ein Beispiel eines Links: [OpenAI](https://openai.com)
-        `;
-        
-        // Verwende marked.parse() anstelle von marked() in der neuen Version
-        document.getElementById('markdown-output').innerHTML = marked.parse(markdownText);
-    });
-</script>
-
 </body>
 </html>
