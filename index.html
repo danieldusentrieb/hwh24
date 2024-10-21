@@ -14,40 +14,54 @@
         body, html {
             height: 100%;
             font-family: Arial, sans-serif;
+            background-color: black;
+            overflow: hidden;
         }
 
         body {
-            background: url('background.jpg') no-repeat center center fixed;
-            background-size: cover;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: url('background.jpg') no-repeat center center;
+            background-size: contain; /* Keine Verzerrung, das Bild bleibt proportional */
+            transform: translate(-50%, -50%);
         }
 
         h1 {
+            position: relative;
             color: white;
             font-size: 3em;
-            margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 1; /* Überschrift bleibt im sichtbaren Bereich */
         }
 
-        .content {
-            width: 80%;
-            max-width: 600px;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        textarea {
-            width: 100%;
-            height: 200px;
+        p {
+            position: relative;
+            color: white;
+            font-size: 1.5em;
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 10px;
-            border: none;
             border-radius: 5px;
-            font-size: 1em;
+            z-index: 1;
         }
 
         @media (max-width: 600px) {
@@ -55,16 +69,16 @@
                 font-size: 2em;
             }
 
-            textarea {
-                height: 150px;
+            p {
+                font-size: 1.2em;
             }
         }
     </style>
 </head>
 <body>
-    <h1>Hochwasserhilfe 2024</h1>
-    <div class="content">
-        <textarea placeholder="Dein Text hier..."></textarea>
+    <div class="container">
+        <h1>Hochwasserhilfe 2024</h1>
+        <p>Dein Text hier...</p>
     </div>
 </body>
 </html>
