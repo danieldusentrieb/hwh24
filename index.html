@@ -5,58 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hochwasserhilfe 2024</title>
     <style>
-        html, body {
-            height: 100%;
+        * {
             margin: 0;
-            display: flex;
-            justify-content: center; /* Horizontale Zentrierung */
-            align-items: flex-start;    /* Vertikale Zentrierung */
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
         body {
-            background-image: url('background.jpg');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #000; /* Optional: schwarze Hintergrundfarbe, falls es Ränder gibt */
-            text-align: center; /* Text zentrieren */
-            color: white; /* Textfarbe */
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
-        div {
-            background-color: rgba(0, 0, 0, 0.6); /* 60% transparentes schwarz */
-            padding: 20px; /* Innenabstand */
-            border-radius: 10px; /* Abgerundete Ecken */
-            margin: 50px 20px; /* Abstand oben 50px, seitlich 20px */
-            max-width: 90vw; /* Begrenzt die Breite des div auf 90% der Viewport-Breite */
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        table {
-            margin: 0 auto; /* Zentrierung der Tabelle */
-            border-collapse: collapse; /* Entfernt die Abstände zwischen den Zellen */
+
+        .content {
+            width: 80%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
         }
-        td {
-            padding: 10px; /* Innenabstand der Zellen */
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            textarea {
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
-    <div>
-        <h1>Hochwasserhilfe 2024</h1>
-        <br>
-        <p>Am 15.9.24 gab es bei uns leider ein Hochwasser und unser Haus ist 75cm unter Wasser gestanden. Am selben Tag abends konnten wir dann die ersten Schäden begutachten. Alles war verschlammt, also haben wir mit den Aufräumarbeiten begonnen, wobei gleich Freunde zur Unterstützung gekommen sind. In den folgenden Tagen mussten wir die Wände aufmachen, organisatorische Sachen abklären, Zerstörtes aussortieren und zusammengefasst einfach Trockenlegungsarbeiten durchführen. Die schiere Masse an Unterstützung während dieser Arbeiten hat uns einfach überwältigt, obwohl der Zustand, den die Katastrophe in unserem Haus und Garten hinterlassen hat einfach furchtbar war.</p>
-        <h1>Daher möchten wir Danke sagen!</h1>
-        <h2>Danke für die helfenden Hände. Danke für die finanzielle Unterstützung. Danke für die lieben Worte und die Kraft die ihr gespendet habt. Ihr seid toll!!!</h2>
-        <br>
-        <p>Hier würden wir gerne alle bekannten Namen erwähnen:</p>
-        <table>
-            <tr>
-                <td>Manuel A.</td>
-                <td>Nicole T.</td>
-            </tr>
-            <tr>
-                <td>Oliver</td>
-                <td>Christina G.</td>
-            </tr>
-        </table>
-        <p>und natürlich auch ein großes Dankeschön an alle anonymen Spender!</p>
+    <h1>Hochwasserhilfe 2024</h1>
+    <div class="content">
+        <textarea placeholder="Dein Text hier..."></textarea>
     </div>
 </body>
 </html>
